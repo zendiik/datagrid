@@ -2546,6 +2546,11 @@ class DataGrid extends Nette\Application\UI\Control
 			$this->getPresenter()->payload->_datagrid_url = $this->refresh_url;
 			$this->getPresenter()->payload->_datagrid_name = $this->getName();
 
+			$this->getPresenter()->sendPayload([
+				'_datagrid_url' => $this->refresh_url,
+				'_datagrid_name' => $this->getName(),
+			]);
+
 			$this->onRedraw();
 		} else {
 			$this->getPresenter()->redirect('this');
